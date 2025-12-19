@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
@@ -9,11 +10,14 @@ app.use(express.json());
 
 // Kết nối MongoDB 
 mongoose
-  .connect("mongodb+srv://20225238:20225238@cluster0.bwpkzkf.mongodb.net/it4409?retryWrites=true&w=majority", {
+  .connect(process.env.MONGO_URI, {
   })
   .then(() => console.log("Connected to MongoDB"))
   .catch((err) => console.error("MongoDB Error:", err));
-
+const PORT = process.env.PORT || 3001;
+app.listen(PORT, () => {
+  console.log(`Server running on http://localhost:${PORT}`);
+});
 // User Schema
 const UserSchema = new mongoose.Schema({
   name: {
