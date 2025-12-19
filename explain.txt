@@ -1,0 +1,10 @@
+Backend:
+Number.isInteger(Number(age)); check age co phai so nguyen khong neu khong thi tra ve false
+unique:true o email se dam bao 2 ban ghi khong co cung email
+Promise.all:     const [users, total] = await Promise.all([
+      User.find(filter).skip(skip).limit(limit).lean(),  // Query 1
+      User.countDocuments(filter)                         // Query 2
+    ]);
+Frontend:
+chinh sua lai cach danh index STT = (page - 1) × limit + index + 1
+dung trim va STRING.REPLACE(/\s+/g, ' ') de chuan hoa khoang trang
